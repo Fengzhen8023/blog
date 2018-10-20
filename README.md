@@ -34,7 +34,7 @@
 
 然后在我们项目中的 **main.js** 中，将你的 **APP ID** 和 **APP KEY** 填写到对应的位置，就可以正常使用这个项目代码开始你自己的创作了。
 
-```Vue
+```js
 // 在全局状态下，初始化数据库，这里我们初始化一次即可
 // 在其他组件中，我们直接引入数据库，而不需要重复初始化，否则会报错
 var APP_ID = '你申请的APP ID';
@@ -50,7 +50,7 @@ AV.init({
 
 我们在项目中使用到了自定义指令和自定义过滤器。这两者分别可以定义成全局的和局部的，首先看一下在 **main.js** 中全局定义的自定义指令和过滤器：
 
-```Vue
+```js
 // 自定义指令，用来制定博客展示页面的宽度
 Vue.directive("changeWidth", {
   bind(el, binding, vnode) {
@@ -74,7 +74,7 @@ Vue.filter('to-uppercase', function (value) {
 
 如果在Vue组件中定义局部的自定义指令和自定义过滤器，使用如下的代码。提示一下，此处的 **filters** 和 **directives** 和 **data、conputed** 一样，是组件的属性。
 
-```Vue
+```js
 // 自定义局部过滤器
 filters: {
   showProfile: function (value) {
@@ -94,7 +94,7 @@ directives: {
 
 我们在项目中处理数据的时候，主要是向数据库中存储数据已经从数据库中获取数据，具体的代码如下：
 
-```Vue
+```js
 // 从数据库中查询数据
 var AV = require('leancloud-storage')
 var query = new AV.Query('blogList');
